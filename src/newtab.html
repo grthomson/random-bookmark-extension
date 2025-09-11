@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><script type="module">
+import { collectUrls } from "./lib/bookmarks.js";
+(async () => {
+  const tree = await chrome.bookmarks.getTree();
+  const urls = collectUrls(tree);
+  if (urls.length) location.href = urls[Math.floor(Math.random()*urls.length)];
+})();
+</script>
